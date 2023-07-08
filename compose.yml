@@ -1,0 +1,12 @@
+version: '3'
+services:
+  jupyterlab:
+    build: .
+    image: jupyterlab-test-img
+    container_name: jupyterlab-env
+    working_dir: /work
+    volumes:
+      - ./work:/work
+    ports:
+      - "8888:8888"
+    command: jupyter lab --ip 0.0.0.0 --allow-root --NotebookApp.token='' --NotebookApp.password=''
